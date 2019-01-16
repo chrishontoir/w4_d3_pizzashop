@@ -1,0 +1,23 @@
+<h1>Edit An Order</h1>
+
+<form action="/pizza_orders/<%=@edit_order.id%>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <label for="first-name">First name:</label>
+  <input type="text" id ='first-name' name="first_name" value=<%=@edit_order.first_name%>>
+  <br>
+  <label for="last-name">Last name:</label>
+  <input type="text" id ='last-name' name="last_name" value=<%=@edit_order.last_name%>>
+  <br>
+  <label for="quantity">Quantity:</label>
+  <input type="number" id ='quantity' min=1 name="quantity" value=<%=@edit_order.quantity%>>
+  <br>
+  <label for="pizza-select">Select a topping:</label>
+  <select id="pizza-select" name="topping">
+    <option value="Margherita" <%="selected" if @edit_order.topping == "Margherita"%>>Margherita</option>
+    <option value="Pepperoni" <%="selected" if @edit_order.topping == "Pepperoni"%>>Pepperoni</option>
+    <option value="Mushroom" <%="selected" if @edit_order.topping == "Mushroom"%>>Mushroom</option>
+    <option value="Anchovy" <%="selected" if @edit_order.topping == "Anchovy"%>>Anchovy</option>
+  </select>
+  <br>
+  <input type="submit" value="Update Order">
+</form>
